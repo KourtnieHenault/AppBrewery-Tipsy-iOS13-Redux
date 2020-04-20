@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,11 +13,16 @@
 		ADB6895A2326708D006D4E2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADB689582326708D006D4E2B /* Main.storyboard */; };
 		ADB6895C2326708E006D4E2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADB6895B2326708E006D4E2B /* Assets.xcassets */; };
 		ADB6895F2326708E006D4E2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADB6895D2326708E006D4E2B /* LaunchScreen.storyboard */; };
+		BC6331C52444E9D0009ECEB9 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6331C42444E9D0009ECEB9 /* AppState.swift */; };
+		BC6331C72444EA78009ECEB9 /* SplitBillReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6331C62444EA78009ECEB9 /* SplitBillReducer.swift */; };
+		BC6331C92444EAE4009ECEB9 /* SplitBillActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6331C82444EAE4009ECEB9 /* SplitBillActions.swift */; };
 		BCDA42E0242D338F00AF2ED5 /* TipResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDA42DF242D338F00AF2ED5 /* TipResultViewController.swift */; };
-		BCDA42E4242D49AC00AF2ED5 /* SplitBillCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDA42E3242D49AC00AF2ED5 /* SplitBillCalculator.swift */; };
+		E2B9BCAF3F25020DD3718D8E /* Pods_Tipsy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC58941806AFBB9D54773C1D /* Pods_Tipsy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CD6F5B4033093DE8AAD8C54 /* Pods-Tipsy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tipsy.debug.xcconfig"; path = "Target Support Files/Pods-Tipsy/Pods-Tipsy.debug.xcconfig"; sourceTree = "<group>"; };
+		A261CFEB49A302560F65DFB1 /* Pods-Tipsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tipsy.release.xcconfig"; path = "Target Support Files/Pods-Tipsy/Pods-Tipsy.release.xcconfig"; sourceTree = "<group>"; };
 		ADB6894F2326708D006D4E2B /* Tipsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tipsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB689522326708D006D4E2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADB689542326708D006D4E2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,8 +31,11 @@
 		ADB6895B2326708E006D4E2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADB6895E2326708E006D4E2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADB689602326708E006D4E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC58941806AFBB9D54773C1D /* Pods_Tipsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tipsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC6331C42444E9D0009ECEB9 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		BC6331C62444EA78009ECEB9 /* SplitBillReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitBillReducer.swift; sourceTree = "<group>"; };
+		BC6331C82444EAE4009ECEB9 /* SplitBillActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitBillActions.swift; sourceTree = "<group>"; };
 		BCDA42DF242D338F00AF2ED5 /* TipResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipResultViewController.swift; sourceTree = "<group>"; };
-		BCDA42E3242D49AC00AF2ED5 /* SplitBillCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitBillCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B9BCAF3F25020DD3718D8E /* Pods_Tipsy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		094644D006614BD3C783DE9F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CD6F5B4033093DE8AAD8C54 /* Pods-Tipsy.debug.xcconfig */,
+				A261CFEB49A302560F65DFB1 /* Pods-Tipsy.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		ADB689462326708D006D4E2B = {
 			isa = PBXGroup;
 			children = (
 				ADB689512326708D006D4E2B /* Tipsy */,
 				ADB689502326708D006D4E2B /* Products */,
+				094644D006614BD3C783DE9F /* Pods */,
+				B9603337948C6AAAEE38B0AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,9 +80,11 @@
 		ADB689512326708D006D4E2B /* Tipsy */ = {
 			isa = PBXGroup;
 			children = (
+				BC6331C32444E986009ECEB9 /* Actions */,
+				BC6331C22444E97D009ECEB9 /* Reducers */,
+				BC6331C12444E96D009ECEB9 /* Store */,
 				ADB689522326708D006D4E2B /* AppDelegate.swift */,
 				ADB689542326708D006D4E2B /* SceneDelegate.swift */,
-				BCDA42DE242D32BA00AF2ED5 /* Model */,
 				BCDA42DC242D329B00AF2ED5 /* Controller */,
 				BCDA42DD242D32B400AF2ED5 /* View */,
 				ADB6895B2326708E006D4E2B /* Assets.xcassets */,
@@ -70,6 +92,38 @@
 				ADB689602326708E006D4E2B /* Info.plist */,
 			);
 			path = Tipsy;
+			sourceTree = "<group>";
+		};
+		B9603337948C6AAAEE38B0AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC58941806AFBB9D54773C1D /* Pods_Tipsy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC6331C12444E96D009ECEB9 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				BC6331C42444E9D0009ECEB9 /* AppState.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		BC6331C22444E97D009ECEB9 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				BC6331C62444EA78009ECEB9 /* SplitBillReducer.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		BC6331C32444E986009ECEB9 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				BC6331C82444EAE4009ECEB9 /* SplitBillActions.swift */,
+			);
+			path = Actions;
 			sourceTree = "<group>";
 		};
 		BCDA42DC242D329B00AF2ED5 /* Controller */ = {
@@ -89,14 +143,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BCDA42DE242D32BA00AF2ED5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BCDA42E3242D49AC00AF2ED5 /* SplitBillCalculator.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -104,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADB689632326708E006D4E2B /* Build configuration list for PBXNativeTarget "Tipsy" */;
 			buildPhases = (
+				77039D0128FA7745C18DF291 /* [CP] Check Pods Manifest.lock */,
 				ADB6894B2326708D006D4E2B /* Sources */,
 				ADB6894C2326708D006D4E2B /* Frameworks */,
 				ADB6894D2326708D006D4E2B /* Resources */,
+				C52DC88C34A277C25E5BE5F5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -163,15 +211,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		77039D0128FA7745C18DF291 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tipsy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C52DC88C34A277C25E5BE5F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tipsy/Pods-Tipsy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tipsy/Pods-Tipsy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tipsy/Pods-Tipsy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ADB6894B2326708D006D4E2B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				ADB689572326708D006D4E2B /* TipCalculatorViewController.swift in Sources */,
+				BC6331C92444EAE4009ECEB9 /* SplitBillActions.swift in Sources */,
 				ADB689532326708D006D4E2B /* AppDelegate.swift in Sources */,
 				ADB689552326708D006D4E2B /* SceneDelegate.swift in Sources */,
-				BCDA42E4242D49AC00AF2ED5 /* SplitBillCalculator.swift in Sources */,
+				BC6331C52444E9D0009ECEB9 /* AppState.swift in Sources */,
+				BC6331C72444EA78009ECEB9 /* SplitBillReducer.swift in Sources */,
 				BCDA42E0242D338F00AF2ED5 /* TipResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +406,7 @@
 		};
 		ADB689642326708E006D4E2B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CD6F5B4033093DE8AAD8C54 /* Pods-Tipsy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -331,6 +424,7 @@
 		};
 		ADB689652326708E006D4E2B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A261CFEB49A302560F65DFB1 /* Pods-Tipsy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

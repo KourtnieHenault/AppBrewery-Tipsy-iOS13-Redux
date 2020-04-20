@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import ReSwift
 
 class TipResultViewController: UIViewController {
 
-    var splitBillCalculator:SplitBillCalculator?
     
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var settingsLabel: UILabel!
@@ -18,19 +18,33 @@ class TipResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        totalLabel.text = String(format: "%.2f", splitBillCalculator?.splitBill() ?? Float(0))
-        
-        var tipPercentage = splitBillCalculator?.getTipPercentage() ?? Float(0)
-        tipPercentage *= Float(100)
-        
-        let splitDivisor = splitBillCalculator?.getSplitDivisor() ?? 0
-        
-        settingsLabel.text = "Split between \(splitDivisor) people, with \(String(format: "%.1f", tipPercentage))% tip."
+        store.subscribe(self)
         
     }
     
     @IBAction func recalculateButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+//MARK: - Extends ReSwift StoreSubscriber
+extension TipResultViewController: StoreSubscriber {
+    
+    typealias StoreSubscriberStateType = AppState
+    
+    func newState(state: AppState) {
+        
+        let splitBillTotal = store.state.splitBillTotal
+        totalLabel.text = String(format: "%.2f", splitBillTotal)
+        
+        var tipPercentage = store.state.tipPercentage
+        tipPercentage *= Float(100)
+        
+        let splitDivisor = store.state.splitDivisor
+        
+        settingsLabel.text = "Split between \(splitDivisor) people, with \(String(format: "%.1f", tipPercentage))% tip."
+        
     }
     
 }

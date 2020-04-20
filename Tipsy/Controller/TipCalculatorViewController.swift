@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import ReSwift
 
 class TipCalculatorViewController: UIViewController {
     
-    var splitBillCalculator = SplitBillCalculator()
+    //var splitBillCalculator = SplitBillCalculator()
 
     @IBOutlet weak var billTextField: UITextField!
     @IBOutlet weak var tenPercentButton: UIButton!
@@ -20,8 +21,9 @@ class TipCalculatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        splitBillCalculator.splitDivisor = 1
-        splitBillCalculator.tipPercentage = 0.15
+        
+        store.subscribe(self)
+        
     }
 
     @IBAction func tipChanged(_ sender: UIButton) {
@@ -30,19 +32,33 @@ class TipCalculatorViewController: UIViewController {
         sender.isSelected = true
         
         let tipPercentage = getTipSelectionFromButton(button: sender)
-        splitBillCalculator.tipPercentage = tipPercentage
+        store.dispatch(SplitBillActions.UpdateTipPercentage(percentage: tipPercentage))
+        
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         billTextField.endEditing(true)
         splitNumberLabel.text = String(format: "%.0f", sender.value)
-        splitBillCalculator.splitDivisor = Int(sender.value)
+        
+        let currentDivisor = store.state.splitDivisor
+        let newDivisor = Int(sender.value)
+        
+        if (newDivisor > currentDivisor){
+            store.dispatch(SplitBillActions.IncrementSplitDivisor(1))
+        }else {
+            store.dispatch(SplitBillActions.DecrementSplitDivisor(1))
+        }
+        
     }
     
     
     @IBAction func calculateButtonTapped(_ sender: UIButton) {
-        print(billTextField.text)
-        splitBillCalculator.billTotal = Float(billTextField.text ?? String(0))
+        
+        if let billTotal = Float(billTextField.text ?? String(0)) {
+            store.dispatch(SplitBillActions.UpdateBillTotal(total: billTotal))
+        }
+        
+        store.dispatch(SplitBillActions.CalculateSplitBillTotal)
         self.performSegue(withIdentifier: "goToResult", sender: self)
     }
     
@@ -73,10 +89,23 @@ class TipCalculatorViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
+            
             let destinationVC = segue.destination as! TipResultViewController
-            destinationVC.splitBillCalculator = splitBillCalculator
+           
         }
     }
 
+}
+
+//MARK: - Extends ReSwift StoreSubscriber
+extension TipCalculatorViewController: StoreSubscriber {
+    
+    typealias StoreSubscriberStateType = AppState
+    
+    func newState(state: AppState) {
+        
+        
+    }
+    
 }
 
