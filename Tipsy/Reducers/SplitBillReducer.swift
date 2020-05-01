@@ -38,9 +38,7 @@ func splitBillReducer(action: Action, state: AppState?) -> AppState {
         let splitBillTotal = (billTotal + tip) / divisor
         
         state.splitBillTotal = splitBillTotal
-        
-    default:
-        break
+    
     }
     
     return state
