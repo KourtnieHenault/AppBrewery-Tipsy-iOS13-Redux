@@ -10,8 +10,6 @@ import UIKit
 import ReSwift
 
 class TipCalculatorViewController: UIViewController {
-    
-    //var splitBillCalculator = SplitBillCalculator()
 
     @IBOutlet weak var billTextField: UITextField!
     @IBOutlet weak var tenPercentButton: UIButton!
@@ -21,9 +19,6 @@ class TipCalculatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        store.subscribe(self)
-        
     }
 
     @IBAction func tipChanged(_ sender: UIButton) {
@@ -96,16 +91,3 @@ class TipCalculatorViewController: UIViewController {
     }
 
 }
-
-//MARK: - Extends ReSwift StoreSubscriber
-extension TipCalculatorViewController: StoreSubscriber {
-    
-    typealias StoreSubscriberStateType = AppState
-    
-    func newState(state: AppState) {
-        
-        
-    }
-    
-}
-
