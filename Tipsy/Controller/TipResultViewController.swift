@@ -31,8 +31,6 @@ class TipResultViewController: UIViewController {
 //MARK: - Extends ReSwift StoreSubscriber
 extension TipResultViewController: StoreSubscriber {
     
-    typealias StoreSubscriberStateType = AppState
-    
     func newState(state: AppState) {
         
         let splitBillTotal = store.state.splitBillTotal
