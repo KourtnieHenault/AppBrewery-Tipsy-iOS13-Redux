@@ -11,7 +11,7 @@ import ReSwift
 enum SplitBillActions: Action {
     case UpdateBillTotal(total: Float)
     case UpdateTipPercentage(percentage: Float)
-    case IncrementSplitDivisor(Int)
-    case DecrementSplitDivisor(Int)
+    case IncrementSplitDivisor
+    case DecrementSplitDivisor
     case CalculateSplitBillTotal
 }

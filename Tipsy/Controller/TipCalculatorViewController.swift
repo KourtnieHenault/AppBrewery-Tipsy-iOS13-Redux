@@ -39,13 +39,12 @@ class TipCalculatorViewController: UIViewController {
         let newDivisor = Int(sender.value)
         
         if (newDivisor > currentDivisor){
-            store.dispatch(SplitBillActions.IncrementSplitDivisor(1))
+            store.dispatch(SplitBillActions.IncrementSplitDivisor)
         }else {
-            store.dispatch(SplitBillActions.DecrementSplitDivisor(1))
+            store.dispatch(SplitBillActions.DecrementSplitDivisor)
         }
         
     }
-    
     
     @IBAction func calculateButtonTapped(_ sender: UIButton) {
         

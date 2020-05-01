@@ -18,12 +18,12 @@ func splitBillReducer(action: Action, state: AppState?) -> AppState {
     }
     
     switch action {
-    case .IncrementSplitDivisor(let divisor):
-        state.splitDivisor += divisor
+    case .IncrementSplitDivisor:
+        state.splitDivisor += 1
         
-    case .DecrementSplitDivisor(let divisor):
+    case .DecrementSplitDivisor:
         if(state.splitDivisor > 1) {
-            state.splitDivisor -= divisor
+            state.splitDivisor -= 1
         }
     case .UpdateBillTotal(let total):
         state.billTotal = total
